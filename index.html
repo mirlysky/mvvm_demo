@@ -1,0 +1,35 @@
+<html>
+  <body >
+    <div id="app">
+      <p>
+      	姓名：<span>{{name}}</span>
+      </p>
+      <p>
+      	年龄：<span>{{age}}</span>
+      </p>
+      <p>
+        年龄1：<span>{{age}}</span>
+      </p>
+    </div>
+    <iframe id="frameset" src="./child.html" frameborder="0"></iframe>
+  </body>
+  <script src='observer.js'></script>
+  <script src='watcher.js'></script>
+  <script src='compile.js'></script>
+  <script src='promise.js'></script>
+  <script>
+    var child = document.getElementById('frameset').contentWindow;
+    setTimeout(function(){
+      child.postMessage([1,2,3,4,5],'*');
+    },1000);
+    window.onmessage = function(event){
+      console.log(event.data);
+    }
+
+    var p = {
+      a:'a',
+      b:'b',
+      c:'c'
+    }
+  </script>
+</html>

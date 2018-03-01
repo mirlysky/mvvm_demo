@@ -1,0 +1,11 @@
+<html>
+  <body>
+    <div>111</div>
+  </body>
+  <script>
+    window.onmessage = function(event){
+      console.log(event.data);
+      event.source.postMessage('get','*');
+    }
+  </script>
+</html>
